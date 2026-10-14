@@ -99,7 +99,10 @@ export default function AINexusCurtain({ onIntroComplete }) {
         <div className="absolute inset-0 pointer-events-none overflow-hidden flex">
           {/* Left Curtain Panel */}
           <motion.div
-            className="relative w-1/2 h-full bg-bg-dark"
+            className="relative w-1/2 h-full"
+            style={{
+              background: "linear-gradient(90deg, #08090d 0%, #151326 100%)",
+            }}
             initial={{ x: "0%" }}
             animate={isExiting ? { x: "-100%" } : { x: "0%" }}
             transition={{ duration: 1.05, ease: splitEase }}
@@ -107,7 +110,10 @@ export default function AINexusCurtain({ onIntroComplete }) {
 
           {/* Right Curtain Panel */}
           <motion.div
-            className="relative w-1/2 h-full bg-bg-dark"
+            className="relative w-1/2 h-full"
+            style={{
+              background: "linear-gradient(270deg, #08090d 0%, #151326 100%)",
+            }}
             initial={{ x: "0%" }}
             animate={isExiting ? { x: "100%" } : { x: "0%" }}
             transition={{ duration: 1.05, ease: splitEase }}
