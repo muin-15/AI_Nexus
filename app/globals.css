@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #08090d;
+  --color-bg-card: #0d0e15;
+  --color-accent-periwinkle: #7b61ff;
+  --color-accent-violet: #8b5cf6;
+  --color-accent-glow: #6366f1;
+  --color-text-primary: #f4f4f7;
+  --color-text-secondary: #8e90a6;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.15);
+}
+
+:root {
+  --font-mono-code: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #08090d;
+  color: #f4f4f7;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #08090d;
+  color: #f4f4f7;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Technical grid backgrounds */
+.bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-tech-grid-dense {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Atmospheric Glows */
+.radial-glow-hero {
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(123, 97, 255, 0.18), transparent 75%);
+}
+
+.radial-glow-center {
+  background: radial-gradient(circle 500px at 50% 50%, rgba(123, 97, 255, 0.14), transparent 70%);
+}
+
+.radial-glow-curtain {
+  background: radial-gradient(circle 600px at 50% 50%, rgba(123, 97, 255, 0.2), transparent 70%);
+}
+
+/* Outlined typography */
+.font-outline {
+  -webkit-text-stroke: 1.5px rgba(244, 244, 247, 0.85);
+  color: transparent;
+}
+
+.font-outline-thick {
+  -webkit-text-stroke: 2px rgba(244, 244, 247, 0.9);
+  color: transparent;
+}
+
+.font-outline-periwinkle {
+  -webkit-text-stroke: 1.5px rgba(123, 97, 255, 0.9);
+  color: transparent;
+}
+
+/* Selection */
+::selection {
+  background: rgba(123, 97, 255, 0.35);
+  color: #f4f4f7;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08090d;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(123, 97, 255, 0.4);
+}
