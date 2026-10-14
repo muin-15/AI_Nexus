@@ -1,12 +1,8 @@
 "use client";
 
 import AINexusCurtain from "@/components/AINexusCurtain";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Explore from "@/components/Explore";
-import Community from "@/components/Community";
-import Footer from "@/components/Footer";
+import HomeHub from "@/components/HomeHub";
+import SiteFrame from "@/components/SiteFrame";
 
 export default function Home() {
   return (
@@ -14,19 +10,9 @@ export default function Home() {
       {/* Signature Cinematic Curtain Intro (Plays on each page load, handles ESC / reduced-motion) */}
       <AINexusCurtain />
 
-      {/* Primary Navigation */}
-      <Navbar />
-
-      {/* Main Content Area */}
-      <main id="main-content" className="relative z-10 flex flex-col w-full">
-        <Hero />
-        <About />
-        <Explore />
-        <Community />
-      </main>
-
-      {/* Technical Footer */}
-      <Footer />
+      <SiteFrame>
+        <HomeHub />
+      </SiteFrame>
     </div>
   );
 }
