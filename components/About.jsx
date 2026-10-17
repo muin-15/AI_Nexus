@@ -29,31 +29,31 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-24 sm:py-32 border-t border-white/[0.08] overflow-hidden">
+    <section id="about" className="relative py-24 sm:py-32 border-t border-white/8 overflow-hidden">
       {/* Background glow and subtle grid */}
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
-      <div className="absolute top-1/2 left-0 w-96 h-96 -translate-y-1/2 bg-[#7B61FF]/[0.06] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 -translate-y-1/2 bg-accent-periwinkle/6 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16 sm:mb-20">
-          <div className="flex items-center gap-3 font-mono text-xs sm:text-sm text-[#7B61FF] tracking-[0.2em] uppercase mb-4">
-            <span className="w-2 h-[1px] bg-[#7B61FF]" />
+          <div className="flex items-center gap-3 font-mono text-xs sm:text-sm text-accent-periwinkle tracking-[0.2em] uppercase mb-4">
+            <span className="w-2 h-px bg-accent-periwinkle" />
             <span>01 / WHO WE ARE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F4F4F7] max-w-4xl leading-[1.1]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary max-w-4xl leading-[1.1]">
             Not just learning technology.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4F4F7] via-[#F4F4F7] to-[#7B61FF]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-text-primary via-text-primary to-accent-periwinkle">
               Building with it.
             </span>
           </h2>
 
-          <div className="mt-8 max-w-3xl text-base sm:text-lg text-[#8E90A6] leading-relaxed space-y-4">
+          <div className="mt-8 max-w-3xl text-base sm:text-lg text-text-secondary leading-relaxed space-y-4">
             <p>
               AI NEXUS is an independent collegiate community founded by passionate student developers, researchers, and engineers. We demystify artificial intelligence, machine learning, and emerging computing paradigms through active, uncompromised experimentation.
             </p>
-            <p className="text-sm sm:text-base text-[#8E90A6]/80">
+            <p className="text-sm sm:text-base text-text-secondary/80">
               Whether optimizing agent architectures, deploying production APIs, or evaluating the latest open foundation models, our members collaborate on real challenges and ship working software.
             </p>
           </div>
@@ -64,34 +64,34 @@ export default function About() {
           {pillars.map((pillar) => (
             <div
               key={pillar.index}
-              className="group relative p-6 sm:p-8 rounded-lg bg-white/[0.02] hover:bg-white/[0.04] border border-white/[0.08] hover:border-[#7B61FF]/40 transition-all duration-300 flex flex-col justify-between"
+              className="group relative p-6 sm:p-8 rounded-lg bg-white/2 hover:bg-white/4 border border-white/8 hover:border-accent-periwinkle/40 transition-all duration-300 flex flex-col justify-between"
             >
               {/* Corner crosshairs indicator */}
-              <div className="absolute top-3 right-3 font-mono text-[10px] text-[#8E90A6]/40 group-hover:text-[#7B61FF] transition-colors">
+              <div className="absolute top-3 right-3 font-mono text-[10px] text-text-secondary/40 group-hover:text-accent-periwinkle transition-colors">
                 [+{pillar.index}]
               </div>
 
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-[#7B61FF] tracking-wider uppercase mb-3">
+                <div className="flex items-center gap-2 font-mono text-xs text-accent-periwinkle tracking-wider uppercase mb-3">
                   <span>{pillar.index} //</span>
-                  <span className="text-[#8E90A6]">{pillar.tag}</span>
+                  <span className="text-text-secondary">{pillar.tag}</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-[#F4F4F7] tracking-tight mb-4 group-hover:text-white transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold text-text-primary tracking-tight mb-4 group-hover:text-white transition-colors">
                   {pillar.title}
                 </h3>
 
-                <p className="text-sm text-[#8E90A6] leading-relaxed mb-6">
+                <p className="text-sm text-text-secondary leading-relaxed mb-6">
                   {pillar.description}
                 </p>
               </div>
 
               {/* Technical Capability Tags */}
-              <div className="pt-4 border-t border-white/[0.06] flex flex-wrap gap-2">
+              <div className="pt-4 border-t border-white/6 flex flex-wrap gap-2">
                 {pillar.details.map((detail, idx) => (
                   <span
                     key={idx}
-                    className="inline-block px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.06] font-mono text-[11px] text-[#8E90A6] group-hover:text-[#F4F4F7] transition-colors"
+                    className="inline-block px-2.5 py-1 rounded bg-white/3 border border-white/6 font-mono text-[11px] text-text-secondary group-hover:text-text-primary transition-colors"
                   >
                     {detail}
                   </span>

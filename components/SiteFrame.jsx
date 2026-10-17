@@ -8,8 +8,8 @@ const sections = [
 
 export default function SiteFrame({ children, current }) {
   return (
-    <div className="min-h-screen bg-[#08090D] text-[#F4F4F7]">
-      <header className="fixed inset-x-0 top-0 z-40 border-b border-white/[0.07] bg-[#08090D]/85 backdrop-blur-xl">
+    <div className="min-h-screen bg-bg-dark text-text-primary">
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-white/[0.07] bg-bg-dark/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
           <Link href="/" className="flex items-center text-lg font-black tracking-[-0.08em] text-white" aria-label="AI NEXUS home">
             AI<span className="ml-1.5 font-outline tracking-[-0.06em]">NEXUS</span>
