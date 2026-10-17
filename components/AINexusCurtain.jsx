@@ -13,14 +13,13 @@ import { motion, AnimatePresence } from "framer-motion";
  *   left & right vertical panels sliding off-screen, revealing the homepage cleanly.
  * 
  * Playback behavior:
- * - Plays on every page load.
+ * - Plays once when the browser session first opens the homepage.
  * - Gracefully respects prefers-reduced-motion.
  * - Cleans up all timers on unmount (React Strict Mode safe).
  * - Supports instant ESC key skip.
  */
 export default function AINexusCurtain({ onIntroComplete }) {
-  const [mounted, setMounted] = useState(false);
-  const [phase, setPhase] = useState("init"); // 'init' | 'entrance' | 'hold' | 'exit' | 'done'
+  const [phase, setPhase] = useState("entrance");
 
   const completeIntro = useCallback(() => {
     setPhase("done");
@@ -30,8 +29,6 @@ export default function AINexusCurtain({ onIntroComplete }) {
   }, [onIntroComplete]);
 
   useEffect(() => {
-    setMounted(true);
-
     // Check for reduced motion preference
     const prefersReducedMotion =
       typeof window !== "undefined" &&
@@ -77,8 +74,7 @@ export default function AINexusCurtain({ onIntroComplete }) {
     };
   }, [completeIntro, onIntroComplete]);
 
-  // Don't render anything during SSR or once intro is completed
-  if (!mounted || phase === "done") {
+  if (phase === "done") {
     return null;
   }
 
