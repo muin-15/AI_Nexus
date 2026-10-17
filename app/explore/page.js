@@ -3,7 +3,7 @@ import SiteFrame from "@/components/SiteFrame";
 
 export default function ExplorePage() {
   return (
-    <SiteFrame current="explore">
+    <SiteFrame showHomeButton>
       <main id="main-content">
         <Explore />
       </main>

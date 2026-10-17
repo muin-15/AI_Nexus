@@ -1,11 +1,9 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { DitheredLogo } from "@/components/ui/dithered-logo";
-import { WheelCarousel } from "@/components/ui/wheel-carousel";
+import { LayeredStack } from "@/components/ui/layered-stack";
+import { useSectionTransition } from "@/components/SectionTransition";
 
 const sections = [
   {
@@ -41,27 +39,15 @@ const sections = [
   },
 ];
 
-const carouselItems = sections.map((section) => ({
-  label: section.disabled ? `${section.title} · TBD` : section.title,
-  image: section.image,
-  imageAlt: section.alt,
-}));
-
 export default function HomeHub() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const reduceMotion = useReducedMotion();
-  const activeSection = sections[activeIndex];
-
-  const moveSection = (direction) => {
-    setActiveIndex((index) => (index + direction + sections.length) % sections.length);
-  };
+  const navigateWithTransition = useSectionTransition();
 
   return (
     <main
       id="main-content"
       className="relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden px-4 py-6 sm:px-8 sm:py-8"
     >
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-bg-dark" aria-hidden="true" />
       <motion.div
         className="pointer-events-none absolute inset-0 -z-10 opacity-90"
         aria-hidden="true"
@@ -104,7 +90,7 @@ export default function HomeHub() {
           <div className="mx-auto flex justify-center" role="img" aria-label="AI NEXUS logo">
             <DitheredLogo
               imageSrc="/ainexus-wordmark.svg"
-              className="h-32 w-full max-w-160 sm:h-44"
+              className="h-40 w-full max-w-192 sm:h-56 md:h-64"
               scale={2.2}
               invert={false}
               particleColor="#c4b5fd"
@@ -115,84 +101,93 @@ export default function HomeHub() {
           </p>
         </header>
 
-        <section className="mx-auto mt-3 max-w-5xl sm:mt-5" aria-label="Explore AI NEXUS">
-          <WheelCarousel
-            items={carouselItems}
-            mode="custom"
-            activeIndex={activeIndex}
-            onActiveChange={(_, index) => setActiveIndex(index)}
-            photoSide="left"
-            photoWidth={43}
-            photoAspect="3/4"
-            photoRadius={20}
-            contentWidth={1080}
-            radius={210}
-            spacing={20}
-            visibleItems={3}
-            apexInset={15}
-            markerColor="#a99aff"
-            markerSize={10}
-            markerGap={14}
-            textColor="rgba(207, 202, 229, 0.36)"
-            selectedColor="#f4f4f7"
-            background="transparent"
-            panelColor="#11121d"
-            edgeFadeSize={12}
-            className="h-105 min-h-105 bg-transparent sm:h-112.5 sm:min-h-112.5"
-            photoClassName="shadow-[0_24px_70px_rgba(0,0,0,0.45)]"
-            itemClassName="font-semibold uppercase tracking-[0.08em]"
-          />
-        </section>
-
         <section
-          className="mx-auto flex max-w-3xl items-center justify-between gap-4 border-t border-white/10 pt-4 sm:pt-5"
-          aria-live="polite"
+          className="mx-auto mt-5 max-w-4xl sm:mt-7"
+          aria-label="Explore AI NEXUS sections"
         >
-          <button
-            type="button"
-            onClick={() => moveSection(-1)}
-            className="grid size-10 shrink-0 place-items-center rounded-full border border-white/15 text-[#c4b5fd] transition hover:border-[#c4b5fd]/60 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c4b5fd]"
-            aria-label="Previous section"
-          >
-            <ArrowLeft size={16} aria-hidden="true" />
-          </button>
+          <LayeredStack className="grid h-[21rem] w-full grid-cols-2 gap-3 sm:h-[26rem] sm:gap-5">
+            {sections.map((section, index) => {
+              const cardClassName =
+                "group relative isolate min-h-0 overflow-hidden rounded-xl border border-white/15 bg-[#0b0c14] shadow-[0_18px_55px_rgba(0,0,0,0.45)] transition-[border-color,box-shadow] duration-300 hover:border-[#a99aff]/70 hover:shadow-[0_22px_65px_rgba(70,52,150,0.32)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c4b5fd]";
+              const cardContents = (
+                <>
+                  <div
+                    className="absolute inset-0 -z-10 bg-cover bg-center transition duration-500 group-hover:scale-105"
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(8, 9, 13, 0.08) 15%, rgba(8, 9, 13, 0.88) 100%), url("${section.image}")`,
+                    }}
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="absolute inset-0 -z-10 bg-gradient-to-br from-[#08090d]/25 via-transparent to-[#654ad6]/20"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute inset-x-3 bottom-3 sm:inset-x-5 sm:bottom-5">
+                    <p className="mb-1 font-mono text-[8px] uppercase tracking-[0.2em] text-[#c4b5fd] sm:text-[10px]">
+                      {String(index + 1).padStart(2, "0")}
+                      {section.disabled ? " / COMING SOON" : " / EXPLORE"}
+                    </p>
+                    <h2 className="text-sm font-bold uppercase tracking-[0.04em] text-white sm:text-xl">
+                      {section.title}
+                    </h2>
+                    <p className="mt-1 line-clamp-2 text-[9px] leading-relaxed text-white/75 sm:text-xs">
+                      {section.caption}
+                    </p>
+                  </div>
+                  {!section.disabled && (
+                    <ArrowUpRight
+                      className="absolute right-3 top-3 text-white/80 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:right-5 sm:top-5"
+                      size={18}
+                      aria-hidden="true"
+                    />
+                  )}
+                  {section.disabled && (
+                    <span className="absolute right-3 top-3 rounded-full border border-white/20 bg-black/35 px-2 py-1 font-mono text-[7px] uppercase tracking-wider text-white/70 sm:right-5 sm:top-5 sm:text-[9px]">
+                      Positions TBD
+                    </span>
+                  )}
+                </>
+              );
 
-          <div className="min-w-0 flex-1 text-center">
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#a99aff] sm:text-[10px]">
-              {String(activeIndex + 1).padStart(2, "0")} / 04
-              {activeSection.disabled ? " · COMING SOON" : ""}
-            </p>
-            <p className="mt-1 truncate text-sm text-[#bab8cc] sm:text-base">
-              {activeSection.caption}
-            </p>
-          </div>
+              return section.disabled ? (
+                <div
+                  key={section.title}
+                  className={`${cardClassName} cursor-not-allowed opacity-70`}
+                  aria-label={`${section.title}: ${section.caption}`}
+                  aria-disabled="true"
+                >
+                  {cardContents}
+                </div>
+              ) : (
+                <Link
+                  key={section.title}
+                  href={section.href}
+                  className={cardClassName}
+                  aria-label={`${section.title}: ${section.caption}`}
+                  onClick={(event) => {
+                    if (
+                      event.defaultPrevented ||
+                      event.button !== 0 ||
+                      event.metaKey ||
+                      event.ctrlKey ||
+                      event.shiftKey ||
+                      event.altKey
+                    ) {
+                      return;
+                    }
 
-          {activeSection.disabled ? (
-            <span
-              className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-full border border-white/10 px-4 font-mono text-[9px] uppercase tracking-wider text-text-secondary sm:text-[10px]"
-              aria-disabled="true"
-            >
-              Positions TBD
-            </span>
-          ) : (
-            <Link
-              href={activeSection.href}
-              className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-full border border-[#a99aff]/40 bg-accent-periwinkle/15 px-4 font-mono text-[9px] uppercase tracking-wider text-white transition hover:border-[#c4b5fd] hover:bg-accent-periwinkle/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c4b5fd] sm:text-[10px]"
-            >
-              <span className="hidden sm:inline">Discover</span>
-              {activeSection.title}
-              <ArrowUpRight size={14} aria-hidden="true" />
-            </Link>
-          )}
-
-          <button
-            type="button"
-            onClick={() => moveSection(1)}
-            className="grid size-10 shrink-0 place-items-center rounded-full border border-white/15 text-[#c4b5fd] transition hover:border-[#c4b5fd]/60 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c4b5fd]"
-            aria-label="Next section"
-          >
-            <ArrowRight size={16} aria-hidden="true" />
-          </button>
+                    event.preventDefault();
+                    navigateWithTransition(section.href, section.title);
+                  }}
+                >
+                  {cardContents}
+                </Link>
+              );
+            })}
+          </LayeredStack>
+          <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-white/45 sm:text-[10px]">
+            Hover to unfold · Select a card to explore
+          </p>
         </section>
       </div>
     </main>

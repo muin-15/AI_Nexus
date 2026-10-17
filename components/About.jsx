@@ -1,97 +1,125 @@
+
 "use client";
 
 export default function About() {
   const pillars = [
     {
       index: "01",
-      tag: "EMPIRICAL_DEV",
-      title: "Hands-On Experimentation",
+      tag: "BUILD BY DOING",
+      title: "Make things with your hands",
       description:
-        "We move beyond passive tutorials and static slides. Members build from scratch—training neural networks, testing inference pipelines on local silicon, fine-tuning open weights, and turning research ideas into functional systems.",
-      details: ["Model Fine-Tuning", "Low-Latency Inference", "Hardware Acceleration"],
+        "Most of our learning starts with a blank file. We train small models, try out tools, break things, and keep going until an idea becomes something we can run and show.",
+      details: ["Small Models", "Fast Experiments", "Real Hardware"],
     },
     {
       index: "02",
-      tag: "COLLECTIVE_RND",
-      title: "Collaborative Research",
+      tag: "LEARN TOGETHER",
+      title: "Read, test, discuss",
       description:
-        "Complex breakthroughs don't happen in silos. We foster an interdisciplinary environment where software engineers, data scientists, mathematicians, and product designers dissect landmark papers and co-author technical whitepapers.",
-      details: ["Paper Deconstructions", "Reproducibility Benchmarks", "Peer Review"],
+        "We read interesting papers together, argue about what they got right, and try to reproduce the parts that matter. No one needs to arrive as an expert.",
+      details: ["Paper Circles", "Shared Notes", "Friendly Review"],
     },
     {
       index: "03",
-      tag: "PROD_SHIPPING",
-      title: "Production Engineering",
+      tag: "SHIP IT",
+      title: "Build for the real world",
       description:
-        "Theory only matters when it runs reliably. We emphasize real-world engineering standards: modular architectures, automated testing, containerized deployments, modern web frontends, and open-source releases.",
-      details: ["Modern Stacks & APIs", "Vector Database Design", "Open Repositories"],
+        "A project feels different when someone else can use it. We care about clear code, useful interfaces, reliable APIs, and putting our work where people can try it.",
+      details: ["Useful Interfaces", "Reliable APIs", "Open Projects"],
     },
   ];
 
   return (
-    <section id="about" className="relative py-24 sm:py-32 border-t border-white/8 overflow-hidden">
-      {/* Background glow and subtle grid */}
-      <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
-      <div className="absolute top-1/2 left-0 w-96 h-96 -translate-y-1/2 bg-accent-periwinkle/6 rounded-full blur-3xl pointer-events-none" />
+    <section
+      id="about"
+      className="editorial-page relative overflow-hidden border-t border-white/8 py-24 sm:py-32"
+    >
+      {/* Subtle technical grid */}
+      <div className="bg-tech-grid pointer-events-none absolute inset-0 opacity-20" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-16 sm:mb-20">
-          <div className="flex items-center gap-3 font-mono text-xs sm:text-sm text-accent-periwinkle tracking-[0.2em] uppercase mb-4">
-            <span className="w-2 h-px bg-accent-periwinkle" />
-            <span>01 / WHO WE ARE</span>
+      {/* Ambient violet glow */}
+      <div className="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-accent-periwinkle/10 blur-3xl" />
+
+      <div className="editorial-content mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="mb-16 grid gap-10 sm:mb-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+          <div>
+            <div className="editorial-kicker mb-5">
+              01 / ABOUT THE CLUB
+            </div>
+
+            <h2 className="editorial-title">
+              Curious people.{" "}
+              <em>Real projects.</em>
+            </h2>
+
+            <div className="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-text-secondary sm:text-lg">
+              <p>
+                AI NEXUS is a student club for people who like asking how
+                things work. We learn about AI, software, and new technology
+                by making things together instead of only talking about them.
+              </p>
+
+              <p className="text-sm text-text-secondary/90 sm:text-base">
+                Some members are here to build their first project. Others
+                are tuning models, writing research notes, or helping a team
+                get an idea over the finish line. There is room for all of
+                that.
+              </p>
+            </div>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-text-primary max-w-4xl leading-[1.1]">
-            Not just learning technology.{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-text-primary via-text-primary to-accent-periwinkle">
-              Building with it.
-            </span>
-          </h2>
-
-          <div className="mt-8 max-w-3xl text-base sm:text-lg text-text-secondary leading-relaxed space-y-4">
-            <p>
-              AI NEXUS is an independent collegiate community founded by passionate student developers, researchers, and engineers. We demystify artificial intelligence, machine learning, and emerging computing paradigms through active, uncompromised experimentation.
-            </p>
-            <p className="text-sm sm:text-base text-text-secondary/80">
-              Whether optimizing agent architectures, deploying production APIs, or evaluating the latest open foundation models, our members collaborate on real challenges and ship working software.
-            </p>
+          {/* Collaborative student environment */}
+          <div
+            className="editorial-photo relative min-h-72 overflow-hidden"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, rgba(8, 10, 16, 0.02), rgba(8, 10, 16, 0.65)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85')",
+            }}
+            role="img"
+            aria-label="Students collaborating around a table"
+          >
+            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+              <span className="font-mono text-xs tracking-[0.2em] text-white/70">
+                LEARN TOGETHER. BUILD TOGETHER.
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        {/* Three learning pillars */}
+        <div className="grid grid-cols-1 gap-px border-y border-white/[0.14] bg-white/[0.14] md:grid-cols-3">
           {pillars.map((pillar) => (
             <div
               key={pillar.index}
-              className="group relative p-6 sm:p-8 rounded-lg bg-white/2 hover:bg-white/4 border border-white/8 hover:border-accent-periwinkle/40 transition-all duration-300 flex flex-col justify-between"
+              className="editorial-panel group relative flex flex-col justify-between p-6 transition-all duration-300 sm:p-8"
             >
-              {/* Corner crosshairs indicator */}
-              <div className="absolute top-3 right-3 font-mono text-[10px] text-text-secondary/40 group-hover:text-accent-periwinkle transition-colors">
+              {/* Corner indicator */}
+              <div className="absolute right-3 top-3 font-mono text-[10px] text-text-secondary/50 transition-colors group-hover:text-[#53b8ff]">
                 [+{pillar.index}]
               </div>
 
               <div>
-                <div className="flex items-center gap-2 font-mono text-xs text-accent-periwinkle tracking-wider uppercase mb-3">
+                <div className="mb-3 flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#53b8ff]">
                   <span>{pillar.index} //</span>
-                  <span className="text-text-secondary">{pillar.tag}</span>
+                  <span className="text-[#a7a29a]">{pillar.tag}</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold text-text-primary tracking-tight mb-4 group-hover:text-white transition-colors">
+                <h3 className="mb-4 text-xl font-bold tracking-tight text-text-primary transition-colors group-hover:text-white sm:text-2xl">
                   {pillar.title}
                 </h3>
 
-                <p className="text-sm text-text-secondary leading-relaxed mb-6">
+                <p className="mb-6 text-sm leading-relaxed text-text-secondary">
                   {pillar.description}
                 </p>
               </div>
 
-              {/* Technical Capability Tags */}
-              <div className="pt-4 border-t border-white/6 flex flex-wrap gap-2">
-                {pillar.details.map((detail, idx) => (
+              {/* Capability tags */}
+              <div className="flex flex-wrap gap-x-3 gap-y-2 border-t border-white/12 pt-4">
+                {pillar.details.map((detail) => (
                   <span
-                    key={idx}
-                    className="inline-block px-2.5 py-1 rounded bg-white/3 border border-white/6 font-mono text-[11px] text-text-secondary group-hover:text-text-primary transition-colors"
+                    key={detail}
+                    className="inline-block border-b border-white/16 px-0.5 py-1 font-mono text-[11px] text-[#a7a29a] transition-colors group-hover:text-[#f2eee7]"
                   >
                     {detail}
                   </span>

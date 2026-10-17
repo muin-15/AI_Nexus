@@ -3,7 +3,7 @@ import SiteFrame from "@/components/SiteFrame";
 
 export default function CommunityPage() {
   return (
-    <SiteFrame current="community">
+    <SiteFrame showHomeButton>
       <main id="main-content">
         <Community />
       </main>

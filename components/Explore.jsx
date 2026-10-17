@@ -8,79 +8,82 @@ export default function Explore() {
   const areas = [
     {
       id: "01",
-      code: "AREA_AI_ML",
-      title: "Artificial Intelligence & Machine Learning",
-      tagline: "Neural architectures, foundation models, and autonomous reasoning systems.",
+      code: "AI_AND_MODELS",
+      title: "AI and machine learning",
+      tagline: "Understand what models are doing, then try building one.",
       description:
-        "We dissect how modern intelligent systems learn, generalize, and perform inference. From understanding transformer attention mechanisms and diffusion dynamics to fine-tuning open weights with LoRA and optimizing token throughput.",
-      technologies: ["PyTorch", "Hugging Face", "CUDA / Triton", "Model Quantization", "Computer Vision"],
-      deliverable: "Custom inference runtimes, fine-tuned domain models, and benchmark evaluation suites.",
+        "We work through the basics, look inside current models, and run small experiments that make the ideas click. The goal is curiosity first, impressive terminology second.",
+      technologies: ["Python", "PyTorch", "Hugging Face", "Computer Vision", "Model Testing"],
+      deliverable: "Small models, clear notes, and experiments you can explain to someone else.",
     },
     {
       id: "02",
-      code: "AREA_SOFTWARE_PROD",
-      title: "Software & Product Development",
-      tagline: "Engineering resilient backends, low-latency APIs, and interactive interfaces.",
+      code: "APPS_AND_SYSTEMS",
+      title: "Apps and useful systems",
+      tagline: "Turn an interesting idea into something people can actually use.",
       description:
-        "An AI model is only as useful as the software architecture enclosing it. We design scalable web applications, implement vector indexing pipelines, and construct responsive interfaces that make artificial intelligence intuitive.",
-      technologies: ["Next.js & React", "FastAPI & Python", "Vector DBs (Qdrant/Milvus)", "Docker & CI/CD", "gRPC"],
-      deliverable: "End-to-end full-stack applications with production-grade monitoring and deployment pipelines.",
+        "We make websites, APIs, tools, and small services around the ideas we care about. You can join at the design stage, write code, or help make the final thing feel good to use.",
+      technologies: ["React", "Next.js", "Python", "APIs", "Databases"],
+      deliverable: "Working demos, readable code, and projects people can pick up after us.",
     },
     {
       id: "03",
-      code: "AREA_RESEARCH_EXP",
-      title: "Research & Experimentation",
-      tagline: "Deconstructing seminal papers, verifying empirical claims, and novel exploration.",
+      code: "READ_AND_TEST",
+      title: "Research and experiments",
+      tagline: "Read something interesting. Try it. See what happens.",
       description:
-        "Through our weekly reading circles, we audit recent arXiv publications across deep learning, agentic reasoning, and algorithmic alignment. We reproduce benchmark results, identify failure modes, and publish reproducible experiment code.",
-      technologies: ["ArXiv Literature", "Ablation Studies", "Weights & Biases", "Loss Visualization", "Empirical Benchmarking"],
-      deliverable: "Reproducible code repositories, benchmark comparisons, and student technical write-ups.",
+        "Reading groups turn papers into conversations and experiments. We compare results, notice where things fail, and write down what we learn so the next person can start faster.",
+      technologies: ["Paper Reading", "Small Tests", "Data Notes", "Visualizations", "Write-ups"],
+      deliverable: "Experiments, honest results, and notes worth sharing.",
     },
     {
       id: "04",
-      code: "AREA_HACK_CHALLENGE",
-      title: "Hackathons & Technical Challenges",
-      tagline: "High-velocity prototyping, collegiate sprint teams, and algorithmic contests.",
+      code: "BUILD_UNDER_PRESSURE",
+      title: "Hackathons and challenges",
+      tagline: "A team, a deadline, and an idea that might work.",
       description:
-        "We field collaborative teams for regional, national, and virtual hackathons. Under tight constraints, our squads architect full-stack AI solutions, from multi-agent workflow automations to specialized tooling.",
-      technologies: ["Agent Orchestration", "Rapid System Design", "Function Calling", "Distributed Datastores"],
-      deliverable: "Award-winning functional prototypes, demo presentations, and battle-tested codebases.",
+        "Hackathons are a good excuse to learn quickly with other people. We split the work, make decisions with limited time, and leave with something we can demo, even when it is a little rough.",
+      technologies: ["Team Planning", "Rapid Prototypes", "APIs", "Demos"],
+      deliverable: "A working prototype, a story to tell, and a team that knows more than it did before.",
     },
     {
       id: "05",
-      code: "AREA_WORKSHOPS_PEER",
-      title: "Workshops & Peer Learning",
-      tagline: "Structured masterclasses, live architecture teardowns, and mentorship.",
+      code: "LEARN_WITH_OTHERS",
+      title: "Workshops and peer learning",
+      tagline: "Bring a question. Leave with a few more useful answers.",
       description:
-        "Knowledge grows when openly shared. Senior members host hands-on workshops covering practical skills rarely taught in classrooms: setting up GPU developer environments, training custom tokenizers, and mastering Git collaboration.",
-      technologies: ["Hands-On Labs", "Architecture Teardowns", "Pair Programming", "Open Courseware"],
-      deliverable: "Curated learning paths, public code templates, and continuous peer support.",
+        "Members teach the things they recently figured out, from setting up a project to working with Git. Sessions are practical, informal, and friendly to people who are starting from zero.",
+      technologies: ["Hands-On Sessions", "Pairing", "Git", "Shared Guides"],
+      deliverable: "A clearer next step, a useful example, and people you can ask for help.",
     },
   ];
 
   return (
-    <section id="explore" className="relative py-24 sm:py-32 border-t border-white/[0.08] overflow-hidden">
-      {/* Background Atmosphere */}
-      <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
-      <div className="absolute right-0 top-1/3 w-[500px] h-[500px] bg-[#7B61FF]/[0.05] rounded-full blur-3xl pointer-events-none" />
+    <section id="explore" className="editorial-page relative overflow-hidden border-t border-white/[0.08] py-24 sm:py-32">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="editorial-content mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-14 sm:mb-20">
-          <div className="flex items-center gap-3 font-mono text-xs sm:text-sm text-[#7B61FF] tracking-[0.2em] uppercase mb-4">
-            <span className="w-2 h-[1px] bg-[#7B61FF]" />
-            <span>02 / WHAT DRIVES US</span>
-          </div>
+        <div className="mb-14 grid gap-10 sm:mb-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+          <div>
+          <div className="editorial-kicker mb-5">02 / WAYS TO TAKE PART</div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F4F4F7] max-w-4xl leading-[1.1]">
-            Explore the unknown.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4F4F7] via-[#F4F4F7] to-[#7B61FF]">
-              Make something real.
-            </span>
+          <h2 className="editorial-title">
+            Five ways to get involved.{" "}
+            <em>Pick a direction.</em>
           </h2>
           <p className="mt-4 max-w-2xl text-base sm:text-lg text-[#8E90A6]">
-            Our initiatives are structured around five core engineering vectors, giving members the freedom to delve deep into specialized domains or collaborate across disciplines.
+            There is no single way to take part. Pick a track that sounds fun, move between them, or bring a project that does not fit neatly anywhere.
           </p>
+          </div>
+          <div
+            className="editorial-photo"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, rgba(18,19,18,.02), rgba(18,19,18,.64)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85')",
+            }}
+            role="img"
+            aria-label="Close-up of a computer circuit board"
+          />
         </div>
 
         {/* Interactive Editorial Areas */}
@@ -94,16 +97,16 @@ export default function Explore() {
                   key={area.id}
                   onClick={() => setActiveArea(index)}
                   type="button"
-                  className={`w-full text-left p-5 rounded-lg border transition-all duration-200 cursor-pointer flex items-center justify-between group focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#7B61FF] ${
+                  className={`group flex w-full cursor-pointer items-center justify-between border-b border-white/[0.14] p-5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#53b8ff] ${
                     isSelected
-                      ? "bg-[#7B61FF]/10 border-[#7B61FF]/60 shadow-[0_0_25px_rgba(123,97,255,0.15)]"
-                      : "bg-white/[0.02] hover:bg-white/[0.04] border-white/[0.08] hover:border-white/[0.15]"
+                      ? "bg-[#53b8ff]/[0.09] border-[#53b8ff]/70"
+                      : "bg-transparent hover:bg-white/[0.04]"
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <span
                       className={`font-mono text-xs font-bold transition-colors ${
-                        isSelected ? "text-[#7B61FF]" : "text-[#8E90A6] group-hover:text-[#F4F4F7]"
+                        isSelected ? "text-[#53b8ff]" : "text-[#8E90A6] group-hover:text-[#F4F4F7]"
                       }`}
                     >
                       {area.id}
@@ -125,8 +128,8 @@ export default function Explore() {
                   <div
                     className={`w-2 h-2 rounded-full transition-all ${
                       isSelected
-                        ? "bg-[#7B61FF] shadow-[0_0_8px_#7B61FF]"
-                        : "bg-transparent group-hover:bg-white/20"
+                        ? "bg-[#53b8ff] shadow-[0_0_8px_#53b8ff]"
+                        : "bg-transparent group-hover:bg-black/20"
                     }`}
                   />
                 </button>
@@ -136,11 +139,11 @@ export default function Explore() {
 
           {/* Right Column: Detailed Inspector Panel */}
           <div className="lg:col-span-7">
-            <div className="relative p-7 sm:p-10 rounded-xl bg-white/[0.02] border border-white/[0.1] backdrop-blur-sm min-h-[440px] flex flex-col justify-between">
+            <div className="editorial-panel relative flex min-h-[440px] flex-col justify-between p-7 backdrop-blur-sm sm:p-10">
               {/* Corner Metadata */}
               <div className="flex justify-between items-start font-mono text-xs text-[#8E90A6]/60 border-b border-white/[0.08] pb-4 mb-6">
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#7B61FF] animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#53b8ff] animate-pulse" />
                   <span className="text-[#F4F4F7] uppercase tracking-wider">
                     {areas[activeArea].code}
                   </span>
@@ -153,7 +156,7 @@ export default function Explore() {
                   {areas[activeArea].title}
                 </h4>
                 
-                <p className="text-sm sm:text-base text-[#7B61FF] font-mono mb-6">
+                <p className="text-sm sm:text-base text-[#53b8ff] font-mono mb-6">
                   {areas[activeArea].tagline}
                 </p>
 
@@ -172,7 +175,7 @@ export default function Explore() {
                     {areas[activeArea].technologies.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-2.5 py-1 rounded bg-[#7B61FF]/10 border border-[#7B61FF]/30 font-mono text-xs text-[#F4F4F7]"
+                        className="rounded bg-[#53b8ff]/10 px-2.5 py-1 font-mono text-xs text-[#F4F4F7] border border-[#53b8ff]/30"
                       >
                         {tech}
                       </span>

@@ -24,48 +24,51 @@ export default function Community() {
   const tracks = [
     {
       num: "01",
-      name: "The Builder Track",
-      audience: "Software developers & engineers",
-      focus: "Full-stack apps, vector search engines, LLM agent pipelines, and deployment infrastructure.",
+      name: "Build something",
+      audience: "For people who like making things",
+      focus: "Web apps, small tools, APIs, and experiments that turn an idea into something real.",
     },
     {
       num: "02",
-      name: "The Research Track",
-      audience: "Math, CS & data science students",
-      focus: "Reading papers, auditing model architectures, hyperparameter sweeps, and ablation write-ups.",
+      name: "Figure it out",
+      audience: "For readers, testers, and curious minds",
+      focus: "Read papers, compare ideas, run experiments, and write down what actually happened.",
     },
     {
       num: "03",
-      name: "The Explorer Track",
-      audience: "Curious beginners & enthusiasts",
-      focus: "Foundational Python, prompt engineering, introductory neural networks, and weekly tutorials.",
+      name: "Start here",
+      audience: "For beginners and enthusiastic helpers",
+      focus: "Learn the basics, ask plenty of questions, and find a first project to work on with someone else.",
     },
   ];
 
   return (
-    <section id="community" className="relative py-24 sm:py-32 border-t border-white/[0.08] overflow-hidden">
-      {/* Background Lighting & Grid */}
-      <div className="absolute inset-0 bg-tech-grid opacity-25 pointer-events-none" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#7B61FF]/[0.08] rounded-full blur-3xl pointer-events-none" />
+    <section id="community" className="editorial-page relative overflow-hidden border-t border-white/[0.08] py-24 sm:py-32">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="editorial-content mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-16 sm:mb-20">
-          <div className="flex items-center gap-3 font-mono text-xs sm:text-sm text-[#7B61FF] tracking-[0.2em] uppercase mb-4">
-            <span className="w-2 h-[1px] bg-[#7B61FF]" />
-            <span>03 / FIND YOUR PEOPLE</span>
-          </div>
+        <div className="mb-16 grid gap-10 sm:mb-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+          <div>
+          <div className="editorial-kicker mb-5">03 / COME HANG OUT</div>
 
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F4F4F7] max-w-4xl leading-[1.1]">
-            The future isn't a{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F4F4F7] via-[#F4F4F7] to-[#7B61FF]">
-              spectator sport.
-            </span>
+          <h2 className="editorial-title">
+            Bring your curiosity.{" "}
+            <em>Stay for the people.</em>
           </h2>
 
           <p className="mt-6 max-w-2xl text-base sm:text-lg text-[#8E90A6] leading-relaxed">
-            AI NEXUS is where driven students break through the noise of AI hype. Exchange ideas, dissect state-of-the-art architectures, collaborate across skills, and build projects that actually ship.
+            AI NEXUS is a place to meet people, learn in public, and make progress on something you care about. You do not need a perfect idea or a long résumé to join us.
           </p>
+          </div>
+          <div
+            className="editorial-photo"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, rgba(18,19,18,.02), rgba(18,19,18,.64)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85')",
+            }}
+            role="img"
+            aria-label="A team collaborating around a table"
+          />
         </div>
 
         {/* Tracks Grid */}
@@ -73,9 +76,9 @@ export default function Community() {
           {tracks.map((track) => (
             <div
               key={track.num}
-              className="p-6 rounded-lg bg-white/[0.02] border border-white/[0.08] hover:border-white/[0.18] transition-colors"
+              className="editorial-panel p-6 transition-colors"
             >
-              <div className="font-mono text-xs text-[#7B61FF] mb-2">{track.num} // PATHWAY</div>
+              <div className="font-mono text-xs text-[#53b8ff] mb-2">{track.num} // PATHWAY</div>
               <h3 className="text-lg font-bold text-[#F4F4F7] mb-1">{track.name}</h3>
               <div className="font-mono text-xs text-[#8E90A6]/70 mb-3">{track.audience}</div>
               <p className="text-xs sm:text-sm text-[#8E90A6] leading-relaxed">{track.focus}</p>
@@ -84,13 +87,13 @@ export default function Community() {
         </div>
 
         {/* Join CTA Panel */}
-        <div className="relative rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.12] p-8 sm:p-12 overflow-hidden shadow-2xl">
+        <div className="editorial-panel relative overflow-hidden border-[#53b8ff]/30 p-8 shadow-2xl sm:p-12">
           {/* Subtle Accent Glow inside Card */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#7B61FF]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute right-0 top-0 h-80 w-80 bg-[#53b8ff]/[0.08] blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#7B61FF]/10 border border-[#7B61FF]/30 font-mono text-xs text-[#7B61FF] uppercase tracking-wider mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7B61FF] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#53b8ff]/10 border border-[#53b8ff]/30 font-mono text-xs text-[#53b8ff] uppercase tracking-wider mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#53b8ff] animate-pulse" />
               COHORT INTAKE OPEN
             </div>
 
@@ -99,21 +102,49 @@ export default function Community() {
             </h3>
 
             <p className="text-sm sm:text-base text-[#8E90A6] leading-relaxed mb-8">
-              No prior AI expertise required—only intense curiosity, dedication, and a willingness to learn. Connect with us on Discord, inspect our open-source repositories, or reach out to the student leads.
+              No prior AI experience is required. Come to a session, meet the group, bring a question, or help with a project that is already underway.
             </p>
 
             {/* Configurable Action Buttons */}
             <div className="flex flex-wrap items-center gap-4">
               {/* Primary Discord / Chat Invite Link */}
               <a
-                href={CLUB_CONFIG.discordUrl}
+                href={"https://chat.whatsapp.com/IqBDg0IMddjKPI5Dyo0OjQ?s=cl&p=a&mlu=4&ilr=4&iam=0"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#7B61FF] hover:bg-[#6A4FE8] text-white font-mono text-xs sm:text-sm font-semibold tracking-wider uppercase rounded transition-all duration-200 shadow-[0_0_25px_rgba(123,97,255,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center gap-2.5 rounded bg-[#53b8ff] px-6 py-3.5 font-mono text-xs font-semibold uppercase tracking-wider text-[#061019] transition-all duration-200 hover:bg-[#82ccff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:text-sm"
               >
-                <span>Join Discord Community</span>
+                <span>Join Our Community</span>
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+
+              <a
+                href={"https://www.instagram.com/ai_nexus_pccoer?dlrf=Mjl0ZWgyaHh3dnB2"}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Join us on Instagram"
+                title="Join us on Instagram"
+                className="inline-flex size-12 items-center justify-center rounded bg-[#53b8ff] text-[#061019] transition-all duration-200 hover:bg-[#82ccff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <rect width="16" height="16" x="4" y="4" rx="4" strokeWidth="1.8" />
+                  <circle cx="12" cy="12" r="3.5" strokeWidth="1.8" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
+
+              <a
+                href={"https://www.linkedin.com/in/ai-nexus-club-1646b2438?utm_source=share_via&utm_content=profile&utm_medium=member_android"}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Join us on LinkedIn"
+                title="Join us on LinkedIn"
+                className="inline-flex size-12 items-center justify-center rounded bg-[#53b8ff] text-[#061019] transition-all duration-200 hover:bg-[#82ccff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <svg className="size-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5.2 8.2A1.7 1.7 0 1 0 5.2 4.8a1.7 1.7 0 0 0 0 3.4ZM3.7 9.5h3v9.8h-3V9.5Zm4.8 0h2.9v1.3h.1c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.7 2 3.7 4.6v5.6h-3v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6v5.1h-3V9.5Z" />
                 </svg>
               </a>
 
@@ -127,22 +158,14 @@ export default function Community() {
                 <span>Interest Form</span>
               </a>
 
-              {/* GitHub Repositories */}
-              <a
-                href={CLUB_CONFIG.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/[0.03] hover:bg-white/[0.06] text-[#8E90A6] hover:text-[#F4F4F7] border border-white/[0.08] hover:border-white/[0.2] font-mono text-xs sm:text-sm tracking-wider uppercase rounded transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#7B61FF]"
-              >
-                <span>GitHub Repos</span>
-              </a>
-
               {/* Copy Contact Email */}
               <button
                 type="button"
                 onClick={copyEmail}
-                className="inline-flex items-center gap-2 px-4 py-3.5 bg-transparent hover:bg-white/[0.04] text-[#8E90A6] hover:text-[#F4F4F7] border border-dashed border-white/[0.15] font-mono text-xs uppercase tracking-wider rounded transition-colors cursor-pointer"
-                title="Copy contact email"
+                disabled
+                aria-disabled="true"
+                className="inline-flex cursor-not-allowed items-center gap-2 rounded border border-dashed border-white/[0.1] bg-transparent px-4 py-3.5 font-mono text-xs uppercase tracking-wider text-[#8E90A6]/50 opacity-60"
+                title="Copy contact email is temporarily unavailable"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
